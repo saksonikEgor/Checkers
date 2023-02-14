@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.Assert;
 
 public class BoardTest {
-    BoardWriter boardWriter = new BoardWriter("/Users/egor/Desktop/ШАШКИ/сохраненные партии");
+    BoardWriter boardWriter = new BoardWriter("checkers/savingBatches");
 
     @Test
     public void init_NO_NULL() {
@@ -27,7 +27,7 @@ public class BoardTest {
     @Test
     public void comeBackButtonPressed() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/BoardTest/comeBackButtonPressedTest");
+                "checkers/test/batchesForTests/boardTest/comeBackButtonPressedTest");
 
         Board expected1 = new Board("против игрока", boardWriter);
         Board actual1 = new Board("против игрока", boardWriter);
@@ -63,7 +63,7 @@ public class BoardTest {
     @Test
     public void lightAfterFirstClick() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/BoardTest/lightAfterFirstClickTest");
+                "checkers/test/batchesForTests/boardTest/lightAfterFirstClickTest");
 
         Board expected1 = new Board("против игрока", boardWriter);
         Board actual1 = new Board("против игрока", boardWriter);
@@ -195,7 +195,7 @@ public class BoardTest {
     @Test
     public void lightAvailableCheckers() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/BoardTest/lightAvailableCheckersTest");
+                "checkers/test/batchesForTests/boardTest/lightAvailableCheckersTest");
 
         Board expected1 = new Board("против игрока", boardWriter);
         Board actual1 = new Board("против игрока", boardWriter);
@@ -267,7 +267,7 @@ public class BoardTest {
     @Test
     public void afterSecondClick() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/BoardTest/afterSecondClickTest");
+                "checkers/test/batchesForTests/boardTest/afterSecondClickTest");
 
         Board expected1 = new Board("против игрока", boardWriter);
         Board actual1 = new Board("против игрока", boardWriter);
@@ -393,7 +393,7 @@ public class BoardTest {
     @Test
     public void makeComputerMove() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/BoardTest/makeComputerMoveTest");
+                "checkers/test/batchesForTests/boardTest/makeComputerMoveTest");
 
         Board expected1 = new Board("против компьютера", boardWriter);
         Board actual1 = new Board("против компьютера", boardWriter);

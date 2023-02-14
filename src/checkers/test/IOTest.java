@@ -15,13 +15,13 @@ import java.util.List;
 public class IOTest {
     @Test
     public void boardReaderInit_NO_NULL() {
-        BoardReader boardReader = new BoardReader("/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest");
+        BoardReader boardReader = new BoardReader("checkers/test/batchesForTests/iOTest");
         Assert.assertNotNull(boardReader);
     }
 
     @Test
     public void boardWriterInit_NO_NULL() {
-        BoardWriter boardWriter = new BoardWriter("/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest");
+        BoardWriter boardWriter = new BoardWriter("checkers/test/batchesForTests/iOTest");
         Assert.assertNotNull(boardWriter);
     }
 
@@ -38,7 +38,7 @@ public class IOTest {
     @Test
     public void boardReaderGetNamesOfFiles() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/getNameOfFilesTest");
+                "checkers/test/batchesForTests/iOTest/getNameOfFilesTest");
 
         String[] files = boardReader.getNamesOfFiles();
         List<String> expected = List.of("1stFile.txt", "2ndFile.txt", "3rdFile.txt", "4thFile.txt");
@@ -54,7 +54,7 @@ public class IOTest {
     @Test(expected = RuntimeException.class)
     public void boardReaderDeleteFile_EXCEPTION() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/deleteFileTest");
+                "checkers/test/batchesForTests/iOTest/deleteFileTest");
 
         boardReader.deleteFile("wrong path");
     }
@@ -62,10 +62,10 @@ public class IOTest {
     @Test
     public void boardReaderDeleteFail() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/deleteFileTest");
+                "checkers/test/batchesForTests/iOTest/deleteFileTest");
 
         String fileName = "deleteMe.txt";
-        File file = new File("/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/deleteFileTest" + "/" + fileName);
+        File file = new File("checkers/test/batchesForTests/iOTest/deleteFileTest" + "/" + fileName);
 
         try {
             file.createNewFile();
@@ -78,7 +78,7 @@ public class IOTest {
     @Test
     public void boardReaderGetGameModeFromFile() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/getGameModeFromFileTest");
+                "checkers/test/batchesForTests/iOTest/getGameModeFromFileTest");
 
         String actual1 = boardReader.getGameModeFromFile("getGameModeFromFile1.txt");
         String actual2 = boardReader.getGameModeFromFile("getGameModeFromFile2.txt");
@@ -93,7 +93,7 @@ public class IOTest {
     @Test(expected = RuntimeException.class)
     public void boardReaderGetGameModeFromFile_EXCEPTION() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/getGameModeFromFileTest");
+                "checkers/test/batchesForTests/iOTest/getGameModeFromFileTest");
 
         boardReader.getGameModeFromFile("wrong path");
     }
@@ -101,10 +101,10 @@ public class IOTest {
     @Test
     public void boardReaderInitBoardFromFile() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/initBoardFromFileTest");
+                "checkers/test/batchesForTests/iOTest/initBoardFromFileTest");
 
         Board expected = new Board("против игрока", new BoardWriter(
-                "/Users/egor/Desktop/ШАШКИ/сохраненные партии"));
+                "checkers/savingBatches"));
         expected.defaultInit();
         Cell[][] firstBoard = expected.getBoard();
         expected.addInBoardHistory(new HistoricalBoard(firstBoard, true, new ArrayList<>()));
@@ -130,7 +130,7 @@ public class IOTest {
 
 
         Board actual = new Board("против игрока", new BoardWriter(
-                "/Users/egor/Desktop/ШАШКИ/сохраненные партии"));
+                "checkers/savingBatches"));
 
         boardReader.initBoardFromFile(actual, "initBoardFromFile.txt");
 
@@ -140,27 +140,27 @@ public class IOTest {
     @Test(expected = RuntimeException.class)
     public void boardReaderInitBoardFromFile_EXCEPTION() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/initBoardFromFileTest");
+                "checkers/test/batchesForTests/iOTest/initBoardFromFileTest");
         boardReader.initBoardFromFile(new Board("против игрока", new BoardWriter(
-                "/Users/egor/Desktop/ШАШКИ/сохраненные партии")), "wrong path");
+                "checkers/savingBatches")), "wrong path");
     }
 
     @Test
     public void boardWriterSaveBatch() {
         BoardReader boardReader = new BoardReader(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/saveBatchTest");
+                "checkers/test/batchesForTests/iOTest/saveBatchTest");
         Board board = new Board("против игрока", new BoardWriter(
-                "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/saveBatchTest"));
+                "checkers/test/batchesForTests/iOTest/saveBatchTest"));
 
         boardReader.initBoardFromFile(board, "savedBatch.txt");
         board.saveButtonPressed("saveBatchActual");
 
         try {
             BufferedReader expected = new BufferedReader(new FileReader(
-                    "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/saveBatchTest/saveBatchExpected.txt"));
+                    "checkers/test/batchesForTests/iOTest/saveBatchTest/saveBatchExpected.txt"));
 
             BufferedReader actual = new BufferedReader(new FileReader(
-                    "/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/saveBatchTest/saveBatchActual.txt"));
+                    "checkers/test/batchesForTests/iOTest/saveBatchTest/saveBatchActual.txt"));
 
             String line;
             while ((line = expected.readLine()) != null)
@@ -170,7 +170,7 @@ public class IOTest {
             Assert.assertNull("Actual had more lines then the expected.", actual.readLine());
             Assert.assertNull("Expected had more lines then the actual.", expected.readLine());
 
-            new File("/Users/egor/Desktop/ШАШКИ/партии для тестов/IOTest/saveBatchTest/saveBatchActual").delete();
+            new File("checkers/test/batchesForTests/iOTest/saveBatchTest/saveBatchActual").delete();
         } catch (IOException e) {
             e.printStackTrace();
         }

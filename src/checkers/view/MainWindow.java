@@ -19,7 +19,6 @@ public class MainWindow extends JFrame {
 
         Container container = getContentPane();
 
-
         FlowLayout flow = new FlowLayout();
         flow.setVgap(50);
         JPanel buttonPanel = new JPanel(flow);
@@ -196,7 +195,7 @@ public class MainWindow extends JFrame {
     }
 
     public static void main(String[] args) {
-        String directoryForSavingBatch = "/Users/egor/Desktop/ШАШКИ/сохраненные партии";
+        String directoryForSavingBatch = "src/checkers/savingBatches";
 
         new MainWindow(new JFrame(), new BoardReader(directoryForSavingBatch),
                 new BoardWriter(directoryForSavingBatch));
