@@ -264,7 +264,7 @@ public class Board {
     public String getMoveHistoryToString() {
         StringBuilder buf = new StringBuilder();
 
-        buf.append("  Белые     Черные\n");
+        buf.append("  WHITE     BLACK\n");
 
         boolean previousMoveBelongToBlack = false;
         boolean previousMoveBelongToWhite = false;
@@ -629,9 +629,9 @@ public class Board {
             }
             if (noOneIsLighted) { // если никто не был подсвечен, то есть игрок не имеет возможности куда-либо сходить
                 if (tern == 1)  // если ход белых
-                    gameResult = "ПОБЕДИЛИ ЧЕРНЫЕ";
+                    gameResult = "BLACK WON";
                 else  // если ход черных
-                    gameResult = "ПОБЕДИЛИ БЕЛЫЕ";
+                    gameResult = "WHITES WON";
 
                 gameRestarted = true;
                 //restartGame();
@@ -1015,9 +1015,9 @@ public class Board {
 
         if (availableMoves.length == 0) {// если кто-то победил
             if (tern == 1)  // если ход белых
-                gameResult = "ПОБЕДИЛИ ЧЕРНЫЕ";
+                gameResult = "BLACK WOM";
             else  // если ход черных
-                gameResult = "ПОБЕДИЛИ БЕЛЫЕ";
+                gameResult = "WHITES WON";
 
             gameRestarted = true;
             return;
