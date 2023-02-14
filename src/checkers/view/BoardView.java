@@ -190,7 +190,7 @@ public class BoardView extends JPanel {
         public void mouseClicked(MouseEvent event) {
             Point2D p = event.getPoint();
 
-            System.out.println("мышка кликнута");
+            //System.out.println("мышка кликнута");
 
             if (checkClicking(p)) { // если пользователь нажал на клетку
 
@@ -243,14 +243,14 @@ public class BoardView extends JPanel {
                 board = b.getBoard(); // на случай если началась новая игра
                 reScan();
 
-                System.out.println("вы походили");
+                //System.out.println("вы походили");
             }
         }
     }
 
     private void restartGame() {
         System.out.println(b.getGameResult());
-        System.out.println("НАЧАЛАСЬ НОВАЯ ИГРА");
+        //System.out.println("НАЧАЛАСЬ НОВАЯ ИГРА");
 
         JOptionPane.showMessageDialog(new JFrame(), b.getGameResult());
 
