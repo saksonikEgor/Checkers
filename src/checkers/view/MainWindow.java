@@ -11,7 +11,7 @@ public class MainWindow extends JFrame {
     public MainWindow(JFrame frame, BoardReader boardReader, BoardWriter boardWriter) {
         frame.setVisible(false);
 
-        String title = "ШАШКИ";
+        String title = "CHECKERS";
         setTitle(title);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
