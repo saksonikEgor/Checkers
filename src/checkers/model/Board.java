@@ -425,7 +425,7 @@ public class Board {
     public boolean lightAfterFirstClick() {// подсвечивает все доступные ходы для данной шашки
         if (mustKill.length > 0) { // если есть шашки обязанные бить
             if (!List.of(mustKill).contains(firstCell)) { // если текушая шашка не такова
-                //System.out.println("существуют шашки бязанные бить и вы нажали не на такую или нажали на пустую клетку");
+                System.out.println("существуют шашки бязанные бить и вы нажали не на такую или нажали на пустую клетку");
                 return false;
             }
 
@@ -440,12 +440,12 @@ public class Board {
             lightAvailableKills();// подсветить все клетки на которые текущая шашка может походить (бьет)
         } else { // если нету шашек обязанных бить
             if (firstCell.getColor() != tern) { // если текущая шашка не ваша или клетка пустая
-                //System.out.println("вы нажали не на свою шашку или нажали на пустую клетку");
+                System.out.println("вы нажали не на свою шашку или нажали на пустую клетку");
                 return false;
             }
 
             if (!firstCell.isLight()) { // если пользователь нажал на неподсвеченную шашку
-                //System.out.println("данная шашка не имеет возможности куда-либо сходить");
+                System.out.println("данная шашка не имеет возможности куда-либо сходить");
                 return false;
             }
 
@@ -454,7 +454,7 @@ public class Board {
 
             lightAvailableMoves(); // подсветить все клетки на которые данная шашка может сходить
         }
-        //System.out.println("были подсвечены все доступные ходы для данной шашки");
+        System.out.println("были подсвечены все доступные ходы для данной шашки");
         return true;
     }
 
@@ -636,9 +636,9 @@ public class Board {
                 gameRestarted = true;
                 //restartGame();
             }
-            //System.out.println("нету шашек которые могут срубить, были подсвечены все шашки которые могут сходить");
+            System.out.println("нету шашек которые могут срубить, были подсвечены все шашки которые могут сходить");
         } else
-            //System.out.println("были подсвечены все шашки которые могут срубить");
+            System.out.println("были подсвечены все шашки которые могут срубить");
 
         mustKill = res.toArray(new Cell[0]);
         boardHistory.add(new HistoricalBoard(makeCopyOfBoard(board), true, convertMustKillToArrayList()));
@@ -728,7 +728,7 @@ public class Board {
                 }
             }
         }
-        //System.out.println("были подсвечены все клетки на которые вы можете сходить чтобы срубить");
+        System.out.println("были подсвечены все клетки на которые вы можете сходить чтобы срубить");
         return res;
     }
 
@@ -804,14 +804,14 @@ public class Board {
                 }
             }
         }
-        //System.out.println("были подсвечены все клетки на которые вы можете сходить");
+        System.out.println("были подсвечены все клетки на которые вы можете сходить");
         return res;
     }
 
     public boolean afterSecondClick() {
         if (secondCell.isLight()) { // если пользователь кликнул на подсвеченную клетку
             if (firstCell == secondCell) { // если новая клетка равна cell
-                //System.out.println("вы клекнули на ту же самую шашку");
+                System.out.println("вы клекнули на ту же самую шашку");
                 return false;
             }
             secondCell.changeCell(tern, firstCell.isQueen()); // ставим cell на новую клетку
@@ -956,14 +956,14 @@ public class Board {
 
                     lightAvailableKills(); // и подсветить все клетки на которые эта шашка может сходить чтобы срубить
 
-                    //System.out.println("вы кликнули на другую свою шашку, которая может рубить");
+                    System.out.println("вы кликнули на другую свою шашку, которая может рубить");
                     return false;
                 }
 
                 if (List.of(mustKill).contains(firstCell) && !List.of(mustKill).contains(secondCell)) {
                     // если старая шашка обязана рубить и новая шашка не обязана
-                    //System.out.println("вы кликнули на свою новую шашку, которая не может рубить, " +
-                    //        "в то время как ваша старая шашка рубить обязана");
+                    System.out.println("вы кликнули на свою новую шашку, которая не может рубить, " +
+                            "в то время как ваша старая шашка рубить обязана");
                     return false;
                 }
                 // если нету шашек обязанных рубить, значит предидущая шашка должна была походить
@@ -976,13 +976,13 @@ public class Board {
 
                     lightAvailableMoves(); // и подсветить все возможные ходы для новой шашки
 
-                    //System.out.println("вы кликнули на другую свою шашку");
+                    System.out.println("вы кликнули на другую свою шашку");
                 } else { // если новая шашка не имеет возможности куда-либо сходить
                     setFirstCell(curCell);
-                    //System.out.println("вы кликнули на дуругю свою шашку, которая не имеет возможности куда-либо сходить");
+                    System.out.println("вы кликнули на дуругю свою шашку, которая не имеет возможности куда-либо сходить");
                 }
             } else
-                //System.out.println("ваша шашка не может походить на указанную клетку");
+                System.out.println("ваша шашка не может походить на указанную клетку");
 
             return false;
         }
