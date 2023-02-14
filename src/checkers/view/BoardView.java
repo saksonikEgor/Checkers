@@ -67,12 +67,10 @@ public class BoardView extends JPanel {
         });
 
         saveButton.addActionListener(event -> {
-            String getMessage = JOptionPane.showInputDialog(new JFrame(),
-                    "Enter the name of the batch you want to save");
+            String getMessage = JOptionPane.showInputDialog(new JFrame(), "Введите название партии");
 
             while (!b.saveButtonPressed(getMessage)) {
-                getMessage = JOptionPane.showInputDialog(new JFrame(),
-                        "A batch with the same name already exists");
+                getMessage = JOptionPane.showInputDialog(new JFrame(), "Партия с таким названием уже существует");
             }
         });
 

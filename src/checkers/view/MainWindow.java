@@ -28,21 +28,21 @@ public class MainWindow extends JFrame {
         JPanel labelPanel = new JPanel(flow2);
 
 
-        JButton vsPlayerButton = new JButton("Play against the user");
+        JButton vsPlayerButton = new JButton("Играть против пользователя");
         vsPlayerButton.addActionListener(event -> new GameFrame(title, "против игрока", this,
                 boardReader, boardWriter, null));
         vsPlayerButton.setFont(new Font("TimesRoman", Font.BOLD, 18));
         vsPlayerButton.setPreferredSize(new Dimension(300, 100));
         buttonPanel.add(vsPlayerButton);
 
-        JButton vsComputerButton = new JButton("Play against the computer");
+        JButton vsComputerButton = new JButton("Играть против компьютера");
         vsComputerButton.addActionListener(event -> new GameFrame(title, "против компьютера", this,
                 boardReader, boardWriter, null));
         vsComputerButton.setFont(new Font("TimesRoman", Font.BOLD, 18));
         vsComputerButton.setPreferredSize(new Dimension(300, 100));
         buttonPanel.add(vsComputerButton);
 
-        JButton loadBatchButton = new JButton("Load saved batch");
+        JButton loadBatchButton = new JButton("Загрузить сохраненную партию");
         loadBatchButton.addActionListener(event -> new SavedBatchesFrame(title, this,
                 boardReader, boardWriter));
         loadBatchButton.setFont(new Font("TimesRoman", Font.BOLD, 18));
@@ -76,7 +76,7 @@ public class MainWindow extends JFrame {
 
             JPanel menuPanel = new JPanel(new GridLayout(1, 1));
 
-            JButton menuButton = new JButton("Back to main menu");
+            JButton menuButton = new JButton("Вернуться в главное меню");
             menuButton.addActionListener(event -> new MainWindow(this, boardReader, boardWriter));
             menuButton.setFont(new Font("TimesRoman", Font.BOLD, 14));
             menuButton.setPreferredSize(new Dimension(200, 50));
@@ -93,13 +93,13 @@ public class MainWindow extends JFrame {
                 JPanel labelPanel = new JPanel(new FlowLayout());
                 JPanel resPanel = new JPanel(new FlowLayout());
 
-                JButton button1 = new JButton("Delete");
+                JButton button1 = new JButton("Удалить");
                 button1.addActionListener(event -> {
                     boardReader.deleteFile(file);
                     new SavedBatchesFrame(title, this, boardReader, boardWriter);
                 });
 
-                JButton button2 = new JButton("Load");
+                JButton button2 = new JButton("Загрузить");
                 button2.addActionListener(event -> {
                     String gameMode = boardReader.getGameModeFromFile(file);
                     new GameFrame(title, gameMode, this,
@@ -163,18 +163,18 @@ public class MainWindow extends JFrame {
             history.setPreferredSize(new Dimension(150, 600));
             historyPanel.add(history);
 
-            JButton menuButton = new JButton("Back to main menu");
+            JButton menuButton = new JButton("Вернуться в главное меню");
             menuButton.addActionListener(event -> new MainWindow(this, boardReader, boardWriter));
             menuButton.setFont(new Font("TimesRoman", Font.BOLD, 14));
             menuButton.setPreferredSize(new Dimension(200, 50));
             menuPanel.add(menuButton);
 
-            JButton comeBackButton = new JButton("Return to the previous move");
+            JButton comeBackButton = new JButton("Вернуться на предыдущий ход");
             comeBackButton.setFont(new Font("TimesRoman", Font.BOLD, 14));
             comeBackButton.setPreferredSize(new Dimension(280, 70));
             comeBackButtonPanel.add(comeBackButton);
 
-            JButton saveButton = new JButton("Save the batch");
+            JButton saveButton = new JButton("Сохранить партию");
             saveButton.setFont(new Font("TimesRoman", Font.BOLD, 14));
             saveButton.setPreferredSize(new Dimension(280, 70));
             saveButtonPanel.add(saveButton);
